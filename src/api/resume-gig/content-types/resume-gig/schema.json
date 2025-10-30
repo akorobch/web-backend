@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "resume_gigs",
+  "info": {
+    "singularName": "resume-gig",
+    "pluralName": "resume-gigs",
+    "displayName": "Resume_Gigs"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "StartDate": {
+      "type": "date",
+      "required": true
+    },
+    "EndDate": {
+      "type": "date",
+      "required": true
+    },
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Team": {
+      "type": "string"
+    },
+    "contract": {
+      "type": "boolean",
+      "default": false
+    },
+    "MarkdownDescription": {
+      "type": "richtext"
+    },
+    "Type": {
+      "type": "enumeration",
+      "required": true,
+      "default": "on-site",
+      "enum": [
+        "on-site",
+        "on-site/travel",
+        "remote",
+        "hybrid"
+      ]
+    },
+    "newOrg": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "fullTime": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "Accomplishments": {
+      "type": "string"
+    },
+    "EmployerWebsite": {
+      "type": "string"
+    },
+    "EmployerName": {
+      "type": "string"
+    }
+  }
+}

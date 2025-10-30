@@ -497,6 +497,114 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiResumeGigResumeGig extends Struct.CollectionTypeSchema {
+  collectionName: 'resume_gigs';
+  info: {
+    displayName: 'Resume_Gigs';
+    pluralName: 'resume-gigs';
+    singularName: 'resume-gig';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Accomplishments: Schema.Attribute.String;
+    contract: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    EmployerName: Schema.Attribute.String;
+    EmployerWebsite: Schema.Attribute.String;
+    EndDate: Schema.Attribute.Date & Schema.Attribute.Required;
+    fullTime: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::resume-gig.resume-gig'
+    > &
+      Schema.Attribute.Private;
+    Logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
+    MarkdownDescription: Schema.Attribute.RichText;
+    newOrg: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<true>;
+    publishedAt: Schema.Attribute.DateTime;
+    StartDate: Schema.Attribute.Date & Schema.Attribute.Required;
+    Team: Schema.Attribute.String;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    Type: Schema.Attribute.Enumeration<
+      ['on-site', 'on-site/travel', 'remote', 'hybrid']
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'on-site'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiResumeSkillResumeSkill extends Struct.CollectionTypeSchema {
+  collectionName: 'resume_skills';
+  info: {
+    displayName: 'Resume_Skills';
+    pluralName: 'resume-skills';
+    singularName: 'resume-skill';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    AlternateSkillNames: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::resume-skill.resume-skill'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Skill: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Years: Schema.Attribute.Integer & Schema.Attribute.Required;
+  };
+}
+
+export interface ApiResumeSummaryResumeSummary
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'resume_summaries';
+  info: {
+    displayName: 'Resume_Summary';
+    pluralName: 'resume-summaries';
+    singularName: 'resume-summary';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::resume-summary.resume-summary'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    SummaryItem: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1009,6 +1117,9 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::post.post': ApiPostPost;
       'api::project.project': ApiProjectProject;
+      'api::resume-gig.resume-gig': ApiResumeGigResumeGig;
+      'api::resume-skill.resume-skill': ApiResumeSkillResumeSkill;
+      'api::resume-summary.resume-summary': ApiResumeSummaryResumeSummary;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

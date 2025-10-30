@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "resume_skills",
+  "info": {
+    "singularName": "resume-skill",
+    "pluralName": "resume-skills",
+    "displayName": "Resume_Skills"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Skill": {
+      "type": "string",
+      "required": true
+    },
+    "AlternateSkillNames": {
+      "type": "string",
+      "required": true
+    },
+    "Years": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

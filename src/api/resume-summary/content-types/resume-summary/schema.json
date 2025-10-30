@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "resume_summaries",
+  "info": {
+    "singularName": "resume-summary",
+    "pluralName": "resume-summaries",
+    "displayName": "Resume_Summary"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SummaryItem": {
+      "type": "string"
+    }
+  }
+}
