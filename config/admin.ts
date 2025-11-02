@@ -7,7 +7,7 @@ export default ({ env }) => ({
   // to be secure only in production, resolving the Render HTTPS proxy issue.
   session: {
     cookie: {
-      secure: env('NODE_ENV') === 'production',
+      secure: true,
       httpOnly: true,
       sameSite: 'Lax',
     },
